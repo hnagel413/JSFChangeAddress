@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <title>List of humans</title>
+        <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>Addresses</h1>
+            <h:dataTable id="addrTable" var="addr" border="1" value="#{indexController.humans}" 
+                         rendered="#{indexController.humans.size() > 0}">
+                <f:facet name="header">
+                    Addresses entered in this session
+                </f:facet>
+                <h:column id="nameCol">
+                    <f:facet name="header">Name</f:facet>
+                    <h:outputText id="name" value="#{addr.firstName} #{addr.lastName}"/>
+                </h:column>
+                <h:column id="addrCol">
+                    <f:facet name="header">Address</f:facet>
+                    <h:outputText id="addr" value="#{addr.address}"/>
+                </h:column>
+                <h:column id="cityCol">
+                    <f:facet name="header">City</f:facet>
+                    <h:outputText id="city" value="#{addr.code} #{addr.city}"/>
+                </h:column>
+                <h:column id="titleCol">
+                    <f:facet name="header">Title</f:facet>
+                    <h:outputText id="title" value="#{addr.title}"/>
+                </h:column>
+                <h:column id="mailCol">
+                    <f:facet name="header">Email</f:facet>
+                    <h:outputText id="mail" value="#{addr.email}"/>
+                </h:column>
+                <h:column id="dateCol">
+                    <f:facet name="header">Date</f:facet>
+                    <h:outputText id="date" value="#{addr.date}"/>
+                </h:column>
+            </h:dataTable>
+            <p><a href="index.xhtml">Go back to start page</a></p>
+        </h:form>
+    </h:body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

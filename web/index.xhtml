@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <title>Index page</title>
+        <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body>
+        <h1>JSF ChangeAddress</h1>
+        <h:form>
+            <h:panelGrid columns="3" columnClasses="rightalign,leftalign,leftalign">
+                <h:outputLabel value="First name:" for="firstName"/>
+                <h:inputText id="firstName" label="First name" required="true" style="width:300px" 
+                             value="#{indexController.firstName}"/>
+                <h:message for="firstName" class="error-message"/>
+                
+                <h:outputLabel value="Last name:" for="lastName"/>
+                <h:inputText id="lastName" label="Last name" required="true" style="width:300px" 
+                             value="#{indexController.lastName}"/>
+                <h:message for="lastName" class="error-message"/>
+                
+                <h:outputLabel value="Address:" for="address"/>
+                <h:inputText id="addr" label="Address" required="true" style="width:300px" 
+                             value="#{indexController.address}"/>
+                <h:message for="address" class="error-message"/>
+                
+                <h:outputLabel value="Postcode:" for="code"/>
+                <h:inputText id="code" label="Postcode" required="false" style="width:80px" 
+                             value="#{indexController.code}">
+                    <f:validateLength minimum="5" maximum="5"/>
+                </h:inputText>
+                <h:message for="code" class="error-message"/>
+                
+                <h:outputLabel value="City:" for="city"/>
+                <h:inputText id="city" label="City" required="true" style="width:300px" 
+                             value="#{indexController.city}"/>
+                <h:message for="city" class="error-message"/>
+                
+                <h:outputLabel value="Email:" for="mail"/>
+                <h:inputText id="mail" label="Email" required="false" style="width:300px" 
+                             value="#{indexController.email}">
+                    <f:validator validatorId="emailValidator"/>
+                </h:inputText>
+                <h:message for="mail" class="error-message"/>
+                
+                <h:outputLabel value="Date:" for="date"/>
+                <h:inputText id="date" label="Date" required="true" style="width:100px" 
+                             value="#{indexController.date}" immediate="true" onchange="submit()">
+                    <f:validator validatorId="dateValidator"/>
+                </h:inputText>
+                <h:message for="date" class="error-message"/>
+                
+                <h:outputLabel value="Title" for="title"/>
+                <h:inputText id="title" label="Title" required="false" style="width:300px" 
+                             value="#{indexController.title}"/>
+                
+                <h:commandButton value="Send" action="#{indexController.add()}"/>
+            </h:panelGrid>
+            <a href="list.xhtml">Show addresses</a>
+        </h:form>
+    </h:body>
+</html>
+

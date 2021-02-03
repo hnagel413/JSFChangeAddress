@@ -1,0 +1,24 @@
+root{
+    display: block;
+}
+.leftalign{
+    text-align: left;
+}
+.rigtalign{
+    text-align: right;
+}
+.centered{
+    margin-left: auto;
+    margin-right: auto;
+}
+.centered-text{
+    text-align: center;
+}
+.rightalign-bold{
+    font-weight: bold;
+    text-align: right;
+}
+.error-message{
+    color: red;
+    font-size: small;
+}
